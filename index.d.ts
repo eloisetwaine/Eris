@@ -78,7 +78,7 @@ declare namespace Eris {
 
   // Interaction
   type InteractionDataOptions = InteractionDataOptionsSubCommand | InteractionDataOptionsSubCommandGroup | InteractionDataOptionsWithValue;
-  type InteractionDataOptionsWithValue = InteractionDataOptionsString | InteractionDataOptionsInteger | InteractionDataOptionsBoolean | InteractionDataOptionsUser | InteractionDataOptionsChannel | InteractionDataOptionsRole | InteractionDataOptionsMentionable | InteractionDataOptionsNumber;
+  type InteractionDataOptionsWithValue = InteractionDataOptionsString | InteractionDataOptionsInteger | InteractionDataOptionsBoolean | InteractionDataOptionsUser | InteractionDataOptionsChannel | InteractionDataOptionsAttachment | InteractionDataOptionsRole | InteractionDataOptionsMentionable | InteractionDataOptionsNumber;
   interface InteractionDataOptionsSubCommand {
     name: string;
     type: Constants["ApplicationCommandOptionTypes"]["SUB_COMMAND"];
@@ -103,6 +103,7 @@ declare namespace Eris {
   type InteractionDataOptionsRole = InteractionDataOptionWithValue<Constants["ApplicationCommandOptionTypes"]["ROLE"], string>;
   type InteractionDataOptionsMentionable = InteractionDataOptionWithValue<Constants["ApplicationCommandOptionTypes"]["MENTIONABLE"], string>;
   type InteractionDataOptionsNumber = InteractionDataOptionWithValue<Constants["ApplicationCommandOptionTypes"]["NUMBER"], number>;
+  type InteractionDataOptionsAttachment = InteractionDataOptionWithValue<Constants["ApplicationCommandOptionTypes"]["ATTACHMENT"], string>;
 
   interface InteractionOptions {
     type: Constants["InteractionResponseTypes"][keyof Constants["InteractionResponseTypes"]];
@@ -192,6 +193,8 @@ declare namespace Eris {
   type ApplicationCommandOptionsChannel = ApplicationCommandOption<Constants["ApplicationCommandOptionTypes"]["CHANNEL"]> & { channel_types?: ChannelTypes[] };
   // Role
   type ApplicationCommandOptionsRole = ApplicationCommandOption<Constants["ApplicationCommandOptionTypes"]["ROLE"]>;
+  // Attachment
+  type ApplicationCommandOptionsAttachment = ApplicationCommandOption<Constants["ApplicationCommandOptionTypes"]["ATTACHMENT"]>;
   // Mentionable
   type ApplicationCommandOptionsMentionable = ApplicationCommandOption<Constants["ApplicationCommandOptionTypes"]["MENTIONABLE"]>;
   // Number
@@ -1466,6 +1469,7 @@ declare namespace Eris {
       ROLE:              8;
       MENTIONABLE:       9;
       NUMBER:            10;
+      ATTACHMENT:        11;
     };
     ApplicationCommandPermissionTypes: {
       ROLE: 1;
@@ -2911,6 +2915,7 @@ declare namespace Eris {
         roles?: Collection<Role>;
         channels?: Collection<PartialChannel>;
         messages?: Collection<Message>;
+        attachments?: Collection<Attachment>;
       };
       options?: InteractionDataOptions[];
     };
