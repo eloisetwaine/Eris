@@ -1592,6 +1592,10 @@ declare namespace Eris {
     id: string;
     name: string;
   }
+  interface MessageCall {
+    endedTimestamp: number | null;
+    participants: string[];
+  }
   interface MessageInteraction {
     id: string;
     member: Member | null;
@@ -3083,6 +3087,7 @@ declare namespace Eris {
     applicationID?: string;
     attachments: Attachment[];
     author: User;
+    call?: MessageCall;
     channel: T;
     channelMentions: string[];
     /** @deprecated */
