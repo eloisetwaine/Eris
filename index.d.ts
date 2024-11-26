@@ -1624,7 +1624,7 @@ declare namespace Eris {
   }
   interface MessageSnapshot {
     guildID?: string;
-    message: Pick<Message, "attachments" | "content" | "editedTimestamp" | "embeds" | "flags" | "id" | "mentions" | "roleMentions" | "timestamp" | "type">;
+    message: Pick<Message, "attachments" | "components" | "content" | "editedTimestamp" | "embeds" | "flags" | "id" | "mentions" | "roleMentions" | "stickerItems" | "stickers" | "timestamp" | "type">;
   }
   interface PartialAttachment {
     description?: string;
